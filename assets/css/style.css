@@ -1,4 +1,18 @@
-.page_row {
-	margin-top: 20%;
-};
+body {
+	background-color: black;
+	background-image: url("../images/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 
+.page_row {
+	margin-top: 15%;
+}
+
+h1, h2 {
+	font-family: 'Dancing Script', cursive;
+}
+
+#quest_line {
+	font-weight: bold;
+}

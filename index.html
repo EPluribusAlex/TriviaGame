@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Trivia!</title>
 
 	<meta charset="UTF-8">
 
@@ -14,16 +14,20 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 
 	<!-- ADD FAVICON-->
-	<link rel="icon" href="#" type="image/png">
+	<link rel="icon" href="assets/images/favicon.jpg" type="image/png">
+
+	<!--fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
 </head>
-<body>
+<body class=" hide-back">
 
 	<div class="wrapper">
 
 		<!--title area-->
 		<div class="page-header">
-			<h1 class="text-center">QUIZ!</h1>
+			<h1 class="text-center text-success">Book Trivia</h1>
+			<h2 class="text-center text-info">For enthusiasts of literary fiction</h2>
 		</div>
 
 		<!--start/end/result screen-->
@@ -48,17 +52,17 @@
 			<div class="col-md-8">
 				<!--question-->
 				<div class="row">
-					<div class="col-md-12" id="quest_line">
+					<div class="col-md-12 text-info" id="quest_line">
 					</div>
 				</div>
 				<!--choices-->
 				<div class="row">
-					<div class="col-md-12" id="quest_choices">
+					<div class="col-md-12 text-success" id="quest_choices">
 					</div>
 				</div>
 				<!--timer-->
 				<div class="row">
-					<div class="col-med-12" id="quest_timer">
+					<div class="col-med-12 text-warning" id="quest_timer">
 					</div>
 				</div>
 			</div>
@@ -68,7 +72,8 @@
 		</div>
 
 		<!--footer-->
-		<footer class="page-footer">
+		<footer class="page-footer navbar-fixed-bottom">
+			<h4 class="text-center text-info">Created by Alex Florian-Prescott</h4>
 		</footer>
 
 	</div>

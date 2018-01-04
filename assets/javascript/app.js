@@ -3,9 +3,9 @@ $(document).ready(function() {
 	// array of all questions as objects
 	var questObjArr = [
 		{
-			question: "A1?",
-			options: ["A", "B", "C", "D"],
-			answer: "A",
+			question: "In which play by William Shakespeare did Olivia fall for Viola?",
+			options: ["Twelfth Night", "Hamlet", "Henry VIII", "The Count of Monte Cristo"],
+			answer: "Twelfth Night",
 		},
 
 		{
