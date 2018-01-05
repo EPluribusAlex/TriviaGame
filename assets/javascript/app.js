@@ -88,7 +88,7 @@ $(document).ready(function() {
 		// will continue to operate until every question has been answered
 		if(counters.currQuest < questObjArr.length) {
 
-			$("#quest_line").html('<h2 class="text-center question" style="display:none; border-bottom: solid 2px #5826DB;">' + questObjArr[counters.currQuest].question + '</h2>');
+			$("#quest_line").html('<h2 class="text-center question" style="display:none; border-bottom: solid 2px #D5AE2D;">' + questObjArr[counters.currQuest].question + '</h2>');
 			$(".question").fadeIn(2000);
 
 			//fades in choices
@@ -119,7 +119,7 @@ $(document).ready(function() {
 						timeOver();
 					}
 					else if(timeLeft < 5) {
-						$("#seconds").addClass("text-danger");
+						$("#seconds").attr("style", "color: #EA2A13");
 					}
 				}, 1000);
 
@@ -133,7 +133,8 @@ $(document).ready(function() {
 
 					// executes if the player makes the right guess
 					if(playerChoice == questObjArr[counters.currQuest].answer) {
-						$(this).attr("class", "text-center text-success chosen");
+						$(this).attr("class", "text-center chosen");
+						$(this).attr("style", "color: #13EA15");
 						$(".player_choices").fadeOut("slow");
 						$("#quest_timer").fadeOut();
 						clearInterval(t);
@@ -144,7 +145,8 @@ $(document).ready(function() {
 
 					// executes if the player makes the wrong guess
 					else {
-						$(this).attr("class", "text-center text-danger chosen");
+						$(this).attr("class", "text-center chosen");
+						$(this).attr("style", "color: #EA2A13")
 						$(".player_choices").fadeOut("slow");
 						$("#quest_timer").fadeOut();
 						clearInterval(t);
@@ -181,7 +183,7 @@ $(document).ready(function() {
 		}, 4000);
 
 		setTimeout(function() {
-			$("#game_message").append('<h2 class="text-success no_time2" style="display:none;">' + questObjArr[counters.currQuest].answer + '</h2>');
+			$("#game_message").append('<h2 class="no_time2" style="display:none; color: #13EA15">' + questObjArr[counters.currQuest].answer + '</h2>');
 			$(".no_time2").fadeIn("fast");
 		}, 7000);
 

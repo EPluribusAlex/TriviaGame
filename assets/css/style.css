@@ -6,12 +6,22 @@ body {
 }
 
 .page_row {
-	margin-top: 15%;
+	margin-top: 13%;
 }
 
 h1, h2, h3 {
 	font-family: 'Dancing Script', cursive;
 	text-shadow: 2px 2px #2C140D;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 40px;
+	color: #54CF55;
+}
+
+.subtitle {
+	color: #BD91A2;
 }
 
 #quest_line {
@@ -25,4 +35,8 @@ h1, h2, h3 {
 
 #quest_timer {
 	color: #D5AE2D;
+}
+
+#game_message {
+	color: #FFFFFF;
 }
