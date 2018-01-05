@@ -9,10 +9,20 @@ body {
 	margin-top: 15%;
 }
 
-h1, h2 {
+h1, h2, h3 {
 	font-family: 'Dancing Script', cursive;
+	text-shadow: 2px 2px #2C140D;
 }
 
 #quest_line {
+	color: #FFFFFF;
 	font-weight: bold;
+}
+
+#quest_choices {
+	color: #FFFFFF;
+}
+
+#quest_timer {
+	color: #D5AE2D;
 }

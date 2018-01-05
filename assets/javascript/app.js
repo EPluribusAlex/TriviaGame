@@ -9,57 +9,57 @@ $(document).ready(function() {
 		},
 
 		{
-			question: "B1?",
-			options: ["A", "B", "C", "D"],
-			answer: "B",
+			question: "In which story by Sir Arthur Conan Doyle did hair color play an important role?",
+			options: ["The White Company", "The Red-Headed League", "Hair of the Dog", "Shades of Red and White"],
+			answer: "The Red-Headed League",
 		},
 
 		{
-			question: "C1?",
-			options: ["A", "B", "C", "D"],
-			answer: "C",
+			question: "What was the name of the paranoid android in <em>The Hitchhiker\'s Guide to the Galaxy</em> by Douglas Adams?",
+			options: ["John", "Gary", "Marvin", "Reginald"],
+			answer: "Marvin",
 		},
 
 		{
-			question: "D1?",
-			options: ["A", "B", "C", "D"],
-			answer: "D",
+			question: "What was the degree held by Gillian in <em>The Hitchhiker\'s Guide to the Galaxy</em> by Douglas Adams?",
+			options: ["Botany", "Astronomy", "Neuroscience", "Astrophysics"],
+			answer: "Astrophysics",
 		},
 
 		{
-			question: "A2?",
-			options: ["A", "B", "C", "D"],
-			answer: "A",
+			question: "Who was the artist responsible for the fjords of Earth in <em>The Hitchhiker\'s Guide to the Galaxy</em> by Douglas Adams?",
+			options: ["Slartibartfast", "God", "Fred", "Googolmunchkiss"],
+			answer: "Slartibartfast",
 		},
 
 		{
-			question: "B2?",
-			options: ["A", "B", "C", "D"],
-			answer: "B",
+			question: "What was the name of the spaceship commandeered by Zaphod Beeblebrox in <em>The Hitchhiker\'s Guide to the Galaxy</em> by Douglas Adams?",
+			options: ["Spear of Light", "Heart of Gold", "Rust Bucket", "Z23-A4"],
+			answer: "Heart of Gold",
 		},
 
 		{
-			question: "C2?",
-			options: ["A", "B", "C", "D"],
-			answer: "C",
+			question: "A supposed creature roamed the moors in which of Sir Arthur Conan Doyle's Sherlock Holmes mysteries?",
+			options: ["The Adventures of Sherlock Holmes", "The Continuing Adventures of Sherlock Holmes", "The Hound of the Baskervilles", "The Devil of the Bog"],
+			answer: "The Hound of the Baskervilles",
 		},
 
 		{
-			question: "D2?",
-			options: ["A", "B", "C", "D"],
-			answer: "D",
+			question: "In which play by William Shakespeare are the adversaries Benedick and beatrice tricked into confessing their love for eachother?",
+			options: ["King Lear", "The Unity of Foes", "The Tempest", "Much Ado About Nothing"],
+			answer: "Much Ado About Nothing",
 		},
 
 		{
-			question: "A3?",
-			options: ["A", "B", "C", "D"],
-			answer: "A",
+			question: "Who was Sherlock Holmes' greatest adversary?",
+			options: ["Professor Moriarty", "Doctor Denublio", "Inspector Lestrade", "Professor Phimpkin"],
+			answer: "Professor Moriarty",
 		},
 
 		{
-			question: "B3?",
-			options: ["A", "B", "C", "D"],
-			answer: "B",
+			question: "Who died while defending the hobits in <em>The Fellowship of hte Ring</em> by J. R. R. Tolkien?",
+			options: ["Aragorn", "Boromir", "Fatty", "Tom Bombadil"],
+			answer: "Boromir",
 		},
 	];
 
@@ -88,7 +88,7 @@ $(document).ready(function() {
 		// will continue to operate until every question has been answered
 		if(counters.currQuest < questObjArr.length) {
 
-			$("#quest_line").html('<h2 class="text-center question" style="display:none;">' + questObjArr[counters.currQuest].question + '</h2>');
+			$("#quest_line").html('<h2 class="text-center question" style="display:none; border-bottom: solid 2px #5826DB;">' + questObjArr[counters.currQuest].question + '</h2>');
 			$(".question").fadeIn(2000);
 
 			//fades in choices
