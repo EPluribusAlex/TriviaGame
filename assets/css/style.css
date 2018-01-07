@@ -6,7 +6,7 @@ body {
 }
 
 .page_row {
-	margin-top: 13%;
+	margin-top: 11%;
 }
 
 h1, h2, h3 {
@@ -39,4 +39,8 @@ h1 {
 
 #game_message {
 	color: #FFFFFF;
+}
+
+.title_row {
+	margin-top: 4%;
 }

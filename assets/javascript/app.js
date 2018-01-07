@@ -39,7 +39,7 @@ $(document).ready(function() {
 		},
 
 		{
-			question: "A supposed creature roamed the moors in which of Sir Arthur Conan Doyle's Sherlock Holmes mysteries?",
+			question: "A supposed creature roamed the moors in which of Sir Arthur Conan Doyle\'s Sherlock Holmes mysteries?",
 			options: ["The Adventures of Sherlock Holmes", "The Continuing Adventures of Sherlock Holmes", "The Hound of the Baskervilles", "The Devil of the Bog"],
 			answer: "The Hound of the Baskervilles",
 		},
@@ -51,17 +51,55 @@ $(document).ready(function() {
 		},
 
 		{
-			question: "Who was Sherlock Holmes' greatest adversary?",
+			question: "Who was Sherlock Holmes\' greatest adversary?",
 			options: ["Professor Moriarty", "Doctor Denublio", "Inspector Lestrade", "Professor Phimpkin"],
 			answer: "Professor Moriarty",
 		},
 
 		{
-			question: "Who died while defending the hobits in <em>The Fellowship of hte Ring</em> by J. R. R. Tolkien?",
-			options: ["Aragorn", "Boromir", "Fatty", "Tom Bombadil"],
+			question: "Who died while defending the hobits in <em>The Fellowship of the Ring</em> by J. R. R. Tolkien?",
+			options: ["Aragorn", "Boromir", "Fatty", "Gimli"],
 			answer: "Boromir",
 		},
+
+		{
+			question: "What mysterious character \"...remembers the first raindrop and the first acorn...\" in <em>The Fellowship of the Ring</em> by J. R. R. Tolkien?",
+			options: ["Saruman", "Gandalf", "Tom Bombadil", "Galadriel"],
+			answer: "Tom Bombadil",
+		},
+
+		{
+			question: "In <em>The Lord of the Rings</em> trilogy by J. R. R. Tolkien, what was the name of the character Gollum prior to his seduction by the ring?",
+			options: ["Deagol", "Merry", "Toby", "Smeagol"],
+			answer: "Smeagol",
+		},
+
+		{
+			question: "In Isaac Asimov\'s <em>Foundation</em> series, what was the name of the branch science which allowed for the establishment of the Foundation in order to avert a galactic dark age?",
+			options: ["Psychohistory", "Chaos Theory", "Quantum Social Articulation", "Galactic Intersocial Engineering"],
+			answer: "Psychohistory",
+		},
+
+		{
+			question: "In Isaac Asimov\'s <em>Foundation</em> series, who was the scientist who was considered the forefather of the Foundation?",
+			options: ["Dane Ackwood", "Hari Seldon", "Michaela Gybaldi", "Harvey Dent"],
+			answer: "Hari Seldon",
+		},
+
+		{
+			question: "What animal was Aslan, the guardian of Narnia in <em>The Lion, the Witch and the Wardrobe</em> by C. S. Lewis?",
+			options: ["Bear", "Tiger", "Lion", "Sea Sponge"],
+			answer: "Lion",
+		},
+
+		{
+			question: "What was NOT one of \"The Three Laws of Robotics\" first introduced in <em>I, Robot</em> by Isaac Asimov?",
+			options: ["Self-preservation.", "Protecting humans.", "Obeying humans.", "Protecting its manufacturer's financial interests."],
+			answer: "Protecting its manufacturer's financial interests.",
+		}
 	];
+
+	var questSelectArr = [];
 
 	var counters = {
 		currQuest: 0,
@@ -82,13 +120,13 @@ $(document).ready(function() {
 		console.log("Correct guesses count: " + counters.correct);
 		console.log("Incorrect guesses count: " + counters.incorrect);
 		console.log("timed out count: " + counters.timedOut);
-		console.log(questObjArr[counters.currQuest]);
+		console.log(questSelectArr[counters.currQuest]);
 		console.log('Countdown ' + timeLeft + 's');
 
 		// will continue to operate until every question has been answered
-		if(counters.currQuest < questObjArr.length) {
+		if(counters.currQuest < questSelectArr.length) {
 
-			$("#quest_line").html('<h2 class="text-center question" style="display:none; border-bottom: solid 2px #D5AE2D;">' + questObjArr[counters.currQuest].question + '</h2>');
+			$("#quest_line").html('<h2 class="text-center question" style="display:none; border-bottom: solid 2px #D5AE2D;">' + questSelectArr[counters.currQuest].question + '</h2>');
 			$(".question").fadeIn(2000);
 
 			//fades in choices
@@ -96,7 +134,7 @@ $(document).ready(function() {
 			var q = setInterval(function() {
 
 				if(i < 4) {
-					$("#quest_choices").append('<h2 class="text-center player_choices" value="' + i + '" style="display:none;">' + questObjArr[counters.currQuest].options[i] + '</h2>');
+					$("#quest_choices").append('<h2 class="text-center player_choices" value="' + i + '" style="display:none;">' + questSelectArr[counters.currQuest].options[i] + '</h2>');
 					$("[value=" + i + "]").fadeIn();
 					i++;
 				}
@@ -126,13 +164,13 @@ $(document).ready(function() {
 				// waits for an answer to be chosen by the player
 				$(".player_choices").on("click", function() {
 
-					playerChoice = questObjArr[counters.currQuest].options[$(this).attr('value')];
+					playerChoice = questSelectArr[counters.currQuest].options[$(this).attr('value')];
 
 					console.log($(this).attr('value'));
 					console.log(playerChoice);
 
 					// executes if the player makes the right guess
-					if(playerChoice == questObjArr[counters.currQuest].answer) {
+					if(playerChoice == questSelectArr[counters.currQuest].answer) {
 						$(this).attr("class", "text-center chosen");
 						$(this).attr("style", "color: #13EA15");
 						$(".player_choices").fadeOut("slow");
@@ -175,33 +213,33 @@ $(document).ready(function() {
 		setTimeout(function() {
 			$("#game_message").html('<h2 class="no_time" style="display:none;">Your time is up!</h2>');
 			$(".no_time").fadeIn();
-		}, 2000);
+		}, 1500);
 			
 		setTimeout(function() {
 			$("#game_message").append('<h2 class="no_time1" style="display:none;">The correct answer was...</h2>');
 			$(".no_time1").fadeIn(2500);
-		}, 4000);
+		}, 3000);
 
 		setTimeout(function() {
-			$("#game_message").append('<h2 class="no_time2" style="display:none; color: #13EA15">' + questObjArr[counters.currQuest].answer + '</h2>');
+			$("#game_message").append('<h2 class="no_time2" style="display:none; color: #13EA15">' + questSelectArr[counters.currQuest].answer + '</h2>');
 			$(".no_time2").fadeIn("fast");
-		}, 7000);
+		}, 5000);
 
 		setTimeout(function() {
-			if(counters.currQuest == (questObjArr.length - 1)) {
+			if(counters.currQuest == (questSelectArr.length - 1)) {
 				$("#game_message").append('<h2 class="correct_msg1" style="display:none;">That was the last question! Time to see your results...</h2>');
 				$(".correct_msg1").fadeIn();
 			}
 			else {
 				gameClear();
 			}
-		}, 9000);
+		}, 7000);
 
 		setTimeout(function() {
 			counters.currQuest++;
 			counters.timedOut++;
 			gameLoop();
-		}, 12000);
+		}, 9000);
 
 	}
 
@@ -213,10 +251,10 @@ $(document).ready(function() {
 		setTimeout(function() {
 			$("#game_message").html('<h2 class="correct_msg" style="display:none;">That was correct!</h2>');
 			$(".correct_msg").fadeIn();
-		}, 2000);
+		}, 1500);
 			
 		setTimeout(function() {
-			if(counters.currQuest == (questObjArr.length - 1)) {
+			if(counters.currQuest == (questSelectArr.length - 1)) {
 				$("#game_message").append('<h2 class="correct_msg1" style="display:none;">That was the last question! Time to see your results...</h2>');
 				$(".correct_msg1").fadeIn();
 			}
@@ -224,7 +262,7 @@ $(document).ready(function() {
 				$("#game_message").append('<h2 class="correct_msg1" style="display:none;">Now for the next question...</h2>');
 				$(".correct_msg1").fadeIn();
 			}
-		}, 4000);
+		}, 3000);
 
 		setTimeout(function() {
 			gameClear();
@@ -246,10 +284,21 @@ $(document).ready(function() {
 		setTimeout(function() {
 			$("#game_message").html('<h2 class="incorrect_msg" style="display:none;">I\'m sorry, that wasn\'t correct</h2>');
 			$(".incorrect_msg").fadeIn();
-		}, 2000);
+		}, 1500);
+
+		setTimeout(function() {
+			$("#game_message").append('<h2 class="no_time1" style="display:none;">The correct answer was...</h2>');
+			$(".no_time1").fadeIn(2500);
+		}, 3000);
+
+		setTimeout(function() {
+			$("#game_message").append('<h2 class="no_time2" style="display:none; color: #13EA15">' + questSelectArr[counters.currQuest].answer + '</h2>');
+			$(".no_time2").fadeIn("fast");
+		}, 5000);
 			
 		setTimeout(function() {
-			if(counters.currQuest == (questObjArr.length - 1)) {
+			if(counters.currQuest == (questSelectArr.length - 1)) {
+				gameClear();
 				$("#game_message").append('<h2 class="correct_msg1" style="display:none;">That was the last question! Time to see your results...</h2>');
 				$(".correct_msg1").fadeIn();
 			}
@@ -257,11 +306,11 @@ $(document).ready(function() {
 				$("#game_message").append('<h2 class="incorrect_msg1" style="display:none;">Better luck on the next one!</h2>');
 				$(".incorrect_msg1").fadeIn();
 			}
-		}, 4000);
+		}, 6000);
 
 		setTimeout(function() {
 			gameClear();
-		}, 6000);
+		}, 7000);
 
 		setTimeout(function() {
 			counters.currQuest++;
@@ -301,7 +350,7 @@ $(document).ready(function() {
 		}, 6000);
 
 		setTimeout(function() {
-			if(counters.correct === questObjArr.length) {
+			if(counters.correct === questSelectArr.length) {
 				$("#game_message").append('<h2 class="victory" style="display:none;">Congratulations, you won!</h2>');
 				$(".victory").fadeIn();
 			}
@@ -340,10 +389,10 @@ $(document).ready(function() {
 	// empties the main area of the page
 	function gameClear() {
 
-		$("#game_message").fadeOut("slow");
-		$("#quest_line").fadeOut("slow");
-		$("#quest_choices").fadeOut("slow");
-		$("#quest_timer").fadeOut("slow");
+		$("#game_message").fadeOut();
+		$("#quest_line").fadeOut();
+		$("#quest_choices").fadeOut();
+		$("#quest_timer").fadeOut();
 
 		setTimeout(function() {
 
@@ -357,14 +406,14 @@ $(document).ready(function() {
 			$("#quest_choices").fadeIn(0);
 			$("#quest_timer").fadeIn(0);
 
-		}, 2000);
+		}, 1000);
 
 	}
 
 	// creates the start button which is all that is initially displayed in the main page area and waits for it to be pressed
 	function gameSetup() {
 
-		console.log(questObjArr);
+		questFiller();
 
 		$("#game_message").html('<button type="button" class="btn btn-default" id="start_btn">Start Quiz!</button>');
 
@@ -372,6 +421,24 @@ $(document).ready(function() {
 			gameLoop();
 		});
 	
+	}
+
+	// creates the quest selection for the current game
+	function questFiller() {
+		if(questSelectArr.length < 8) {
+			var x = Math.floor((Math.random() * questObjArr.length));
+			var y = questObjArr[x];
+			if(questSelectArr.includes(y)) {
+				questFiller();
+			}
+			else {
+				questSelectArr.push(y);
+				questFiller();
+			}
+		}
+		else {
+			console.log(questSelectArr);
+		}
 	}
 
 	gameSetup();
