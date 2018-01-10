@@ -397,6 +397,8 @@ $(document).ready(function() {
 
 		gameClear();
 
+		questSelectArr.length = 0;
+
 		setTimeout(function() {
 			gameSetup();
 		}, 3000);
