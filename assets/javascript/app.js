@@ -190,7 +190,7 @@ $(document).ready(function() {
 					if(playerChoice == questSelectArr[counters.currQuest].answer) {
 						$(this).attr("class", "text-center chosen");
 						$(this).attr("style", "color: #13EA15");
-						$(".player_choices").fadeOut("slow");
+						$(".player_choices").fadeOut(1300);
 						$("#quest_timer").fadeOut();
 						clearInterval(t);
 						setTimeout(function() {
@@ -202,7 +202,7 @@ $(document).ready(function() {
 					else {
 						$(this).attr("class", "text-center chosen");
 						$(this).attr("style", "color: #EA2A13")
-						$(".player_choices").fadeOut("slow");
+						$(".player_choices").fadeOut(1300);
 						$("#quest_timer").fadeOut();
 						clearInterval(t);
 						setTimeout(function() {
@@ -289,7 +289,7 @@ $(document).ready(function() {
 			counters.currQuest++;
 			counters.correct++;
 			gameLoop();
-		}, 9000);
+		}, 8000);
 
 	}
 
@@ -345,17 +345,17 @@ $(document).ready(function() {
 		setTimeout(function() {
 			$("#game_message").html('<div class="row result_row"><div class="col-md-4 result1"><h3 class="count1" style="display:none;">Correct guesses</h3></div></div>');
 			$(".count1").fadeIn();
-		}, 3000);
+		}, 2000);
 			
 		setTimeout(function() {
 			$(".result_row").append('<div class="col-md-4 result2"><h3 class="count2" style="display:none;">Incorrect guesses</h3></div>');
 			$(".count2").fadeIn();
-		}, 4000);
+		}, 3000);
 
 		setTimeout(function() {
 			$(".result_row").append('<div class="col-md-4 result3"><h3 class="count3" style="display:none;">Expired guesses</h3></div>');
 			$(".count3").fadeIn();
-		}, 5000);		
+		}, 4000);		
 
 		setTimeout(function() {
 			$(".result1").append('<h2 class="cnt1" style="display:none;">' + counters.correct + '<h2>');
@@ -364,7 +364,7 @@ $(document).ready(function() {
 			$(".cnt1").fadeIn();
 			$(".cnt2").fadeIn();
 			$(".cnt3").fadeIn();
-		}, 6000);
+		}, 5000);
 
 		setTimeout(function() {
 			if(counters.correct === questSelectArr.length) {
@@ -375,7 +375,7 @@ $(document).ready(function() {
 				$("#game_message").append('<h2 class="defeat" style="display:none;">Nice try!  Go again?</h2>');
 				$(".defeat").fadeIn();
 			}
-		}, 8000);
+		}, 6000);
 
 		setTimeout(function() {
 			$("#game_message").append('<button type="button" class="btn btn-default" id="restart_btn" style="display:none;">Replay</button>');
@@ -383,7 +383,7 @@ $(document).ready(function() {
 			$("#restart_btn").on("click", function() {
 				gameRestart();
 			});
-		}, 9000);
+		}, 7000);
 
 	}
 
@@ -406,10 +406,10 @@ $(document).ready(function() {
 	// empties the main area of the page
 	function gameClear() {
 
-		$("#game_message").fadeOut();
-		$("#quest_line").fadeOut();
-		$("#quest_choices").fadeOut();
-		$("#quest_timer").fadeOut();
+		$("#game_message").fadeOut(300);
+		$("#quest_line").fadeOut(300);
+		$("#quest_choices").fadeOut(300);
+		$("#quest_timer").fadeOut(300);
 
 		setTimeout(function() {
 
