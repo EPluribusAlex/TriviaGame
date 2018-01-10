@@ -101,6 +101,7 @@ $(document).ready(function() {
 
 	var questSelectArr = [];
 
+	// keeps track of correct/incorrect responses
 	var counters = {
 		currQuest: 0,
 		correct: 0,
@@ -160,6 +161,22 @@ $(document).ready(function() {
 						$("#seconds").attr("style", "color: #EA2A13");
 					}
 				}, 1000);
+
+				// pops out choice on hover
+				$(".player_choices").hover(
+					function() {
+						$(this).animate({
+							"font-size": "40px",
+						}, 300, function() {
+
+						});
+					}, function() {
+						$(this).animate({
+							"font-size": "30px",
+						}, 0, function() {
+
+						});
+					});
 
 				// waits for an answer to be chosen by the player
 				$(".player_choices").on("click", function() {
@@ -341,9 +358,9 @@ $(document).ready(function() {
 		}, 5000);		
 
 		setTimeout(function() {
-			$(".result1").append('<h2 class="text-success cnt1" style="display:none;">' + counters.correct + '<h2>');
-			$(".result2").append('<h2 class="text-danger cnt2" style="display:none;">' + counters.incorrect + '<h2>');
-			$(".result3").append('<h2 class="text-danger cnt3" style="display:none;">' + counters.timedOut + '<h2>');
+			$(".result1").append('<h2 class="cnt1" style="display:none;">' + counters.correct + '<h2>');
+			$(".result2").append('<h2 class="cnt2" style="display:none;">' + counters.incorrect + '<h2>');
+			$(".result3").append('<h2 class="cnt3" style="display:none;">' + counters.timedOut + '<h2>');
 			$(".cnt1").fadeIn();
 			$(".cnt2").fadeIn();
 			$(".cnt3").fadeIn();

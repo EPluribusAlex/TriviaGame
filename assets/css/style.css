@@ -5,8 +5,12 @@ body {
 	background-repeat: no-repeat;
 }
 
+.wrapper {
+	position: relative;
+}
+
 .page_row {
-	margin-top: 11%;
+	margin-top: 8%;
 }
 
 h1, h2, h3 {
@@ -43,4 +47,17 @@ h1 {
 
 .title_row {
 	margin-top: 4%;
+	height: 200px;
+}
+
+.cnt1 {
+	color: #13EA15;
+}
+
+.cnt2 {
+	color: #EA2A13;
+}
+
+.cnt3 {
+	color: #EA2A13;
 }
